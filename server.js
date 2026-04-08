@@ -48,4 +48,8 @@ app.get('/api/audio', async (req, res) => {
     res.json(data);
 });
 
-app.listen(3000, () => console.log("Server running"));
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, "0.0.0.0", () => {
+    console.log("Server running on port " + PORT);
+});
