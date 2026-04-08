@@ -8,7 +8,7 @@ app.use(cors());
 app.use(express.json());
 
 // 🔥 MongoDB Atlas Connection
-mongoose.connect("mongodb+srv://rvishl322_db_user:vidsjhhjrr25@cluster0.6i0cwqc.mongodb.net/voice_recordings?retryWrites=true&w=majority")
+mongoose.connect("mongodb+srv://rvishl322_db_user:vidsjhhjrr25@cluster0.6i0cwqc.mongodb.net/voice_recordings?retryWrites=true&w=majority&appName=Cluster0")
 
 const AudioSchema = new mongoose.Schema({
     filename: String,
