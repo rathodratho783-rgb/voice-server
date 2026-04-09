@@ -47,7 +47,22 @@ app.get('/api/audio', async (req, res) => {
     const data = await Audio.find().sort({ timestamp: -1 });
     res.json(data);
 });
+// 🎧 Play audio API
+app.get('/api/play/:id', async (req, res) => {
+    try {
+        const audio = await Audio.findById(req.params.id);
 
+        if (!audio) {
+            return res.status(404).send("Audio not found");
+        }
+
+        res.set('Content-Type', 'audio/3gpp');
+        res.send(audio.audio_data);
+
+    } catch (err) {
+        res.status(500).send(err.message);
+    }
+});
 const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, "0.0.0.0", () => {
